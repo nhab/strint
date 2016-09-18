@@ -1,9 +1,4 @@
-"use strict";
-
-if (typeof define !== 'function') { var define = require('amdefine')(module) }
-
-define(function () {
-    
+  
     var e = {};
 
     //------------------- Addition
@@ -124,6 +119,13 @@ define(function () {
         }
         if (carry > 0) {
             result = String(carry) + result;
+        }
+        //this if, by nima
+        if(leadingZeros>0){
+            var rrr=(result.length === 0 ? "0" : result);
+            for(it=0;it<leadingZeros;it++)
+                rrr=rrr+"0";
+            return rrr;
         }
         return result.length === 0 ? "0" : result;
     }
@@ -396,8 +398,3 @@ define(function () {
             throw new Error("Not a "+type+": "+value);
         }
     }
-
-    //-------------------
-
-    return e;
-});
